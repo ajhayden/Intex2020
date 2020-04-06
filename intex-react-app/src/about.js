@@ -6,7 +6,7 @@ export default function Center(props) {
     return (
         <div style={{height: 470 }}>
             <h3 className="text-primary pt-4 pb-4" style={{textAlign: 'center'}}>
-                INTEX 2020
+                INTEX 2020 SUCKS
             </h3>
         </div>
     )
