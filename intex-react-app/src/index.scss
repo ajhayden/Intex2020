@@ -1,3 +1,8 @@
 $primary: #40587c;
 $text-primary: #40587c;
-@import '~bootstrap/scss/bootstrap'; //primary bootstrap library
+ //primary bootstrap library
+
+.divSize {
+    height:80vh;
+}
+@import '~bootstrap/scss/bootstrap';
