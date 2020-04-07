@@ -47,3 +47,27 @@ class Campaign(models.Model):
     charity_npo_id = models.TextField(null=True, blank=True)
     charity_name = models.TextField(null=True, blank=True)
     velocity = models.TextField(null=True, blank=True)
+
+#class Donation(models.Model):
+#    donation_id = models.TextField(null=True, blank=True)
+#    campaign_id = models.ForeignKey(Campaign, on_delete=models.PROTECT)
+#    collected_date = models.TextField(null=True, blank=True)
+#    amount = models.TextField(null=True, blank=True)
+#    is_offline = models.TextField(null=True, blank=True)
+#    is_anonymous = models.TextField(null=True, blank=True)
+#    name = models.TextField(null=True, blank=True)
+#    created_at = models.TextField(null=True, blank=True)
+#    profile_url = models.TextField(null=True, blank=True)
+#    verified = models.TextField(null=True, blank=True)
+#    
+#class Update(models.Model):
+#    update_id = models.TextField(null=True, blank=True)
+#    campaign_id = models.ForeignKey(Campaign, on_delete=models.PROTECT)
+#    collected_date = models.TextField(null=True, blank=True)
+#    photo_url = models.TextField(null=True, blank=True)
+#    created_at = models.TextField(null=True, blank=True)
+#    updates_author = models.TextField(null=True, blank=True)
+#    updates_author_type = models.TextField(null=True, blank=True)
+#    updates_text = models.TextField(null=True, blank=True)
+#    comments = models.TextField(null=True, blank=True)
+#    
