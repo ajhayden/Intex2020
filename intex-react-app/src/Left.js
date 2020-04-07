@@ -12,6 +12,7 @@ export default function Left(props) {
                 <Link className="nav-link text-white" to='/searchCampaigns'>Search Campaigns</Link>
                 <Link className="nav-link text-white" to='/about'>About</Link>
                 <Link className="nav-link text-white" to='/help'>Help</Link>
+                <Link className="nav-link text-white" to='/calculator'>Calculator</Link>
             </Nav>
 
         </div>

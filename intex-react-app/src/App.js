@@ -14,6 +14,7 @@ import About from './about'
 import Help from './help'
 import DisplayCampaigns from './displayCampaigns'
 import CampaignDetails from './campaignDetails'
+import Calculator from './calculator'
 
 export default function App() {
     return (
@@ -36,6 +37,7 @@ export default function App() {
                             <Route path="/help" exact component={Help} />
                             <Route path="/displayCampaigns" component={DisplayCampaigns} />
                             <Route path="/campaignDetails/*" component={CampaignDetails} />
+                            <Route path="/calculator" component={Calculator} />
                         </Switch>
                     </Col>
                 </Row>
