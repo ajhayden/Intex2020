@@ -10,9 +10,9 @@ export default function Left(props) {
                 <h5 className="text-white m-3">&nbsp; Menu</h5>
                 <Link className="nav-link text-white" to='/'>Home</Link>
                 <Link className="nav-link text-white" to='/searchCampaigns'>Search Campaigns</Link>
+                <Link className="nav-link text-white" to='/calculator'>Calculator</Link>
                 <Link className="nav-link text-white" to='/about'>About</Link>
                 <Link className="nav-link text-white" to='/help'>Help</Link>
-                <Link className="nav-link text-white" to='/calculator'>Calculator</Link>
             </Nav>
 
         </div>

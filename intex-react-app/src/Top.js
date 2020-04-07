@@ -14,7 +14,10 @@ export default function Top(props) {
                 <Col md="11">
                     <Navbar expand="lg">
                         <Link to='/'>
-                        <Navbar.Brand style={{fontSize: 25}} className="text-white">Campaign Analyzer</Navbar.Brand>
+                        <Navbar.Brand style={{fontSize: 25}} className="text-white">
+                            <img alt="gofundmelogo" style={{width: 70, paddingTop: 0, paddingBottom: 5, paddingRight:8}}  src="/OIP.jpg"/>
+                             Campaign Analyzer 
+                        </Navbar.Brand>
                         </Link>
                         <Navbar.Collapse id="basic-navbar-nav">
 
