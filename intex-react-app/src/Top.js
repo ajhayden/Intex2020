@@ -13,9 +13,10 @@ export default function Top(props) {
             <Row>
                 <Col md="11">
                     <Navbar expand="lg">
+                        <img alt="gofundmelogo" style={{width: 50, paddingTop: 0, paddingBottom: 5, paddingRight: 8}} src="/finalGraph.png"/>
                         <Link to='/'>
-                        <Navbar.Brand style={{fontSize: 25}} className="text-white">
-                            <img alt="gofundmelogo" style={{width: 70, paddingTop: 0, paddingBottom: 5, paddingRight:8}}  src="/OIP.jpg"/>
+                        <Navbar.Brand style={{fontSize: 25}}  className="text-white">
+                            
                              Campaign Analyzer 
                         </Navbar.Brand>
                         </Link>
@@ -23,19 +24,7 @@ export default function Top(props) {
 
                         </Navbar.Collapse>
                     </Navbar>
-                </Col>
-                <Col md="1">
-                    <Dropdown className="mt-2">
-                        <Dropdown.Toggle variant="light" id="dropdown-basic">
-                        Welcome
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                        <Dropdown.Item href="#">My Account</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item href="#">Login</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Col>     
+                </Col>   
             </Row>
         </Container>
     )
