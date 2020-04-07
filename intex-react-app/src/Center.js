@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
 
-
 //how do change an array you need to convert object.values
 export default function Center(props) {
     return (

@@ -12,6 +12,8 @@ import './index.scss'
 import SearchCampaigns from './searchCampaigns'
 import About from './about'
 import Help from './help'
+import DisplayCampaigns from './displayCampaigns'
+import CampaignDetails from './campaignDetails'
 
 export default function App() {
     return (
@@ -32,6 +34,8 @@ export default function App() {
                             <Route path="/searchCampaigns" exact component={SearchCampaigns} />
                             <Route path="/about" exact component={About} />
                             <Route path="/help" exact component={Help} />
+                            <Route path="/displayCampaigns" component={DisplayCampaigns} />
+                            <Route path="/campaignDetails/*" component={CampaignDetails} />
                         </Switch>
                     </Col>
                 </Row>
