@@ -75,7 +75,7 @@ const BasicForm = props => (
             </bs.Col>
             <bs.Col className='p-10' >
                 <br/>
-                <bs.Form.Label>Number of Donators</bs.Form.Label>
+                <bs.Form.Label>Number of Donators:</bs.Form.Label>
                 <br/>
                 <Field as="select" name="donators" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
@@ -87,7 +87,7 @@ const BasicForm = props => (
                     <option value="300-100000">+300</option>
                 </Field>
                 <br/><br/>
-                <bs.Form.Label>Total Amount</bs.Form.Label>
+                <bs.Form.Label>Total Amount:</bs.Form.Label>
                 <br/>
                 <Field as="select" name="currentAmount" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
@@ -100,7 +100,7 @@ const BasicForm = props => (
                     <option value="100000-1000000000">+100000</option>
                 </Field>
                 <br/><br/>
-                <bs.Form.Label>Has a beneficiary</bs.Form.Label>
+                <bs.Form.Label>Has a beneficiary:</bs.Form.Label>
                 <br/>
                 <Field as="select" name="hasBeneficiary" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
