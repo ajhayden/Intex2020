@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom'
 //how do change an array you need to convert object.values
 export default function Center(props) {
     return (
-        <div >
+        <div className="divSize">
             <h3 className="text-primary pt-4 pb-4" style={{textAlign: 'center'}}>
                 Search Campaigns
                 <br />

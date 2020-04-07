@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 
 function SearchCampaign(props) {
     return (
-        <div >
+        <div className="divSize">
             <FormController/>
         </div>
     )
