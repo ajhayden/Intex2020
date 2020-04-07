@@ -31,258 +31,263 @@ export default function CampaignDetails(props) {
                 </Row>
                 <Row>
                     <Col>
-                        <h4>Location of campaign online:</h4>
+                        <h4>Location of Campaign Online:</h4>
                     </Col>
                     <Col>
                         <a href={campaign.url}> <h5> {campaign.url}</h5></a>
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                    <h4>Description:</h4>
+                    <p ><hr /><img style={{float:"right",width:340,height:340}} src={campaign.campaign_image_url}/>
+                    <h5>{campaign.description}</h5></p>
+                    </Col>
+                </Row>
                 <hr />
-                <h4>Description:</h4>
-                <div style={{position: "relative"}}>{campaign.description}</div>
-                <img src={campaign.campaign_image_url}/>
-                <hr />
                 <Row>
                     <Col>
-                        <div>Name</div>
+                        <h6>Name</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.user_first_name}&nbsp;{campaign.user_last_name}</div>
+                        <h6 style={{float:"right"}}>{campaign.user_first_name}&nbsp;{campaign.user_last_name}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>Location City Started the Campaign</div>
+                        <h6>Location City Started the Campaign</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.location_city}&nbsp;{campaign.location_country},&nbsp;{campaign.location_zip}</div>
+                        <h6 style={{float:"right"}}>{campaign.location_city}&nbsp;&nbsp;{campaign.location_country}&nbsp;{campaign.location_zip}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>Updates are Automatically Posted to FaceBook</div>
+                        <h6>Currency</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.collected_date}</div>
+                        <h6 style={{float:"right"}}>{campaign.currencycode}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>the name of the currency chosen by the creator</div>
+                        <h6>Created Date</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.currencycode}</div>
+                        <h6 style={{float:"right"}}>{campaign.created_at}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>date the campaign was created</div>
+                        <h6>Launched Date</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.created_at}</div>
+                        <h6 style={{float:"right"}}>{campaign.launch_date}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>date the campaign was launched</div>
+                        <h6>Updates are Automatically Posted to FaceBook</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.launch_date}</div>
+                        <h6 style={{float:"right"}}>{campaign.collected_date}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>ID of category the campaign was posted under</div>
+                        <h6>Current Level of Money Raised</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.category_id}</div>
+                        <h6 style={{float:"right"}}>{campaign.current_amount}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>category name</div>
+                        <h6>Goal of the Indivdual or Group Who Posted the Campaign</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.category}</div>
+                        <h6 style={{float:"right"}}>{campaign.goal}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>current level of money raised</div>
+                        <h6>Number of People Who Have Donated</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.current_amount}</div>
+                        <h6 style={{float:"right"}}>{campaign.donators}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>goal of the individual or group who posted the campaign</div>
+                        <h6>days_active number of days since the campaign was publicly live</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.goal}</div>
+                        <h6 style={{float:"right"}}>{campaign.days_active}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>number of people who have donated so far</div>
+                        <h6>number of days since the campaign was started in the system</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.donators}</div>
+                        <h6 style={{float:"right"}}>{campaign.days_created}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>days_active number of days since the campaign was publicly live</div>
+                        <h6>???</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.days_active}</div>
+                        <h6 style={{float:"right"}}>{campaign.media_type}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>number of days since the campaign was started in the system</div>
+                        <h6>???</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.days_created}</div>
+                        <h6 style={{float:"right"}}>{campaign.project_type}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>a shortened version of the URL</div>
+                        <h6>donations have been paused</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.default_url}</div>
+                        <h6 style={{float:"right"}}>{campaign.turn_off_donations}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>???</div>
+                        <h6>true/false indicating whether this campaign is publicly visible in the search results</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.media_type}</div>
+                        <h6 style={{float:"right"}}>{campaign.visible_in_search}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>???</div>
+                        <h6>active true/false set by the user</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.project_type}</div>
+                        <h6 style={{float:"right"}}>{campaign.status}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>donations have been paused</div>
+                        <h6>deactivated true/false by GoFundMe</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.turn_off_donations}</div>
+                        <h6 style={{float:"right"}}>{campaign.deactivated}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>true/false indicating whether this campaign is publicly visible in the search results</div>
+                        <h6>???</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.visible_in_search}</div>
+                        <h6 style={{float:"right"}}>{campaign.state}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>active true/false set by the user</div>
+                        <h6>true/false indicating whether the campaign has been launched</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.status}</div>
+                        <h6 style={{float:"right"}}>{campaign.is_launched}</h6>
                     </Col>
                 </Row>
-
+                <p></p>
                 <Row>
                     <Col>
-                        <div>deactivated true/false by GoFundMe</div>
+                        <h6>the number of people who have "liked" or "hearted" the campaign regardless of whether or not they have donated</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.deactivated}</div>
+                        <h6 style={{float:"right"}}>{campaign.campaign_hearts}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>???</div>
+                        <h6>number of people who have shared the campaign on their social media accounts</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.state}</div>
+                        <h6 style={{float:"right"}}>{campaign.social_share_total}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>true/false indicating whether the campaign has been launched</div>
+                        <h6>date of the last social media share</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.is_launched}</div>
+                        <h6 style={{float:"right"}}>{campaign.social_share_last_update}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>the number of people who have "liked" or "hearted" the campaign regardless of whether or not they have donated</div>
+                        <h6>true/false indicating whether the creator is a charitable organization (as opposed to an inh6idual)</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.campaign_hearts}</div>
+                        <h6 style={{float:"right"}}>{campaign.is_charity}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>number of people who have shared the campaign on their social media accounts</div>
+                        <h6>true/false indicating whether the charity has an npo ID</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.social_share_total}</div>
+                        <h6 style={{float:"right"}}>{campaign.charity_valid}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>date of the last social media share</div>
+                        <h6>the npo ID of the valid charity</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.social_share_last_update}</div>
+                        <h6 style={{float:"right"}}>{campaign.charity_npo_id}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>true/false indicating whether the creator is a charitable organization (as opposed to an individual)</div>
+                        <h6>the name of the charity</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.is_charity}</div>
+                        <h6 style={{float:"right"}}>{campaign.charity_name}</h6>
                     </Col>
                 </Row>
+                <p></p>
                 <Row>
                     <Col>
-                        <div>true/false indicating whether the charity has an npo ID</div>
+                        <h6>???</h6>
                     </Col>
                     <Col>
-                        <div>{campaign.charity_valid}</div>
+                        <h6 style={{float:"right"}}>{campaign.velocity}</h6>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <div>the npo ID of the valid charity</div>
-                    </Col>
-                    <Col>
-                        <div>{campaign.charity_npo_id}</div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div>the name of the charity</div>
-                    </Col>
-                    <Col>
-                        <div>{campaign.charity_name}</div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div>???</div>
-                    </Col>
-                    <Col>
-                        <div>{campaign.velocity}</div>
-                    </Col>
-                </Row>
+                <p></p>
             </Container>
         </div>
     )
