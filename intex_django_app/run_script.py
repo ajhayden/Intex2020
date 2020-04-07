@@ -8,6 +8,8 @@ django.setup()
 
 # regular imports
 from api.models import Campaign
+from api.models import Donation
+from api.models import Update
 import csv
 
 
@@ -15,7 +17,7 @@ import csv
 def main():
     with open("campaigns.csv", mode="r", encoding="utf-8-sig") as read_file:
         campaignData = csv.DictReader(read_file)
-        print('###########################')
+        print('CAMPAIGNS')
         for camp in campaignData:
             dbcamp = Campaign()
             dbcamp.url = str(camp['url'])
@@ -63,6 +65,41 @@ def main():
             dbcamp.velocity = str(camp['velocity'])
             dbcamp.save()
             print(str(dbcamp.url))
+
+    # with open("donations.csv", mode="r", encoding="utf-8-sig") as read_file:
+    #    donationData = csv.DictReader(read_file)
+    #   print('DONATIONS')
+    #    for don in campaignData:
+    #        dbdon = Donation()
+    #        dbdon.donation_id = str(don['donation_id'])
+    #        dbdon.campaign_id = str(don['campaign_id'])
+    #        dbcamp.collected_date = str(don['collected_date'])
+    #        dbdon.amount = str(don['amount'])
+    #        dbdon.is_offline = str(don['is_offline'])
+    #        dbdon.is_anonymous = str(don['is_anonymous'])
+    #        dbdon.name = str(don['name'])
+    #        dbdon.verified = str(don['verified'])
+    #        dbdon.save()
+    #        print(str(dbdon.campaign_id))
+
+    # with open("updates.csv", mode="r", encoding="utf-8-sig") as read_file:
+    #    updateData = csv.DictReader(read_file)
+    #    print('UPDATES')
+    #    for up in updateData:
+    #        dbup = Update()
+    #        dbup.donation_id = str(up['update_id'])
+    #        dbup.campaign_id = str(up['campaign_id'])
+    #        dbup.collected_date = str(up['collected_date'])
+    #        dbup.photo_url = str(up['photo_url'])
+    #        dbup.created_at = str(up['created_at'])
+    #        dbup.updates_author = str(up['updates_author'])
+    #        dbup.updates_author_type = str(up['updates_author_type'])
+    #        dbup.updates_text = str(up['updates_text'])
+    #        dbup.comments = str(up['comments'])
+    #        dbup.save()
+    #        print(str(dbup.name))
+
+    # print('################ ALL FINISHED ################')
 
 # bootstrap
 if __name__ == '__main__':
