@@ -6,7 +6,8 @@ export default function Help(props) {
     return (
         <div className="divSize">
             <h3 className="text-primary pt-4 pb-4" style={{textAlign: 'center'}}>
-                Help
+                How to use this app?
+                Explanation?
             </h3>
         </div>
     )
