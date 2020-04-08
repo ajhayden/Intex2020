@@ -54,8 +54,6 @@ const FormController = props => {
             onSubmit={async (values, actions) => {
                 const resp = await axios.get('http://localhost:8000/api/campaign')
                 console.log('axios in action', resp)
-                // const azure = await axios.post('http://localhost:8000/api/calculator/')
-                // console.log(azure)
                 context.setQuery(values)
                 history.push('/displayCampaigns')
             }}

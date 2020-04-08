@@ -59,9 +59,7 @@ class Calculator(APIView):
         }
         response = requests.request("POST", url, headers=headers, data = payload)
         print(response.text.encode('utf8'))
-        # return response.text.encode('utf8')
-
-
+        return Response(response.text.encode('utf8'), status=status.HTTP_201_CREATED)
 
 # Campaign Update
 # class UpdateList(APIView):
