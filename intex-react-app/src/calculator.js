@@ -23,7 +23,16 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-              standard_goal: '2222',
+              standard_goal: '2222', 
+              days_active: '100',
+              days_created: '100',
+              social_share_total: '100',
+              campaign_hearts: '100',
+              media_type: 0,
+              project_type: 0,
+              turn_off_donations: false,
+              has_beneficiary: false,
+              is_charity: false,
             }}
             validateOnChange={false}
             validateOnBlur={false}
@@ -52,9 +61,38 @@ const FormController = props => {
 const BasicForm = props => (
     <Form className="text-primary">
         <bs.Row>
-            <bs.Col md='12' className='ml-3'>
+            <bs.Col md='6' className='ml-3'>
                 <br/>
-                <TextInput form={props.form} title="Standard Goal" name="standard_goal" type="text" />
+                <TextInput form={props.form} title="Standard Goal" name="standard_goal" type="number" />
+                <TextInput form={props.form} title="Days Active" name='days_active' type='number'/>
+                <TextInput form={props.form} title="Days Created" name='days_created' type='number'/>
+                <TextInput form={props.form} title="Social Share Total" name='social_share_total' type='number'/>
+                <TextInput form={props.form} title="Campaign Hearts" name='campaign_hearts' type='number'/>           
+            </bs.Col>
+            <bs.Col className='mt-4'>
+                <bs.Form.Label>Media Type:</bs.Form.Label>
+                <br></br>
+                <Field as="select" name="media_type" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
+                    <option value=""></option>
+                    <option value='0'>Video</option>
+                    <option value="1">Link</option>
+                    <option value="2">None</option>
+                    <option value="3">Photos</option>
+                </Field>
+                <br></br>
+                <br></br>
+                <bs.Form.Label>Project Type:</bs.Form.Label>
+                <br></br>
+                <Field as="select" name="project_type" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
+                    <option value=""></option>
+                    <option value="1">Personal</option>
+                    <option value="2">Charity/Organization</option>
+                </Field>
+                <br></br>
+                <br></br>
+                <TextInput form={props.form} title="Turn Off Donations" name='turn_off_donations' type='checkbox'/>
+                <TextInput form={props.form} title="Has Beneficiary" name='has_beneficiary' type='checkbox'/>
+                <TextInput form={props.form} title="Is Charity" name='is_charity' type='Checkbox'/>
             </bs.Col>
         </bs.Row>
         <bs.Row>
