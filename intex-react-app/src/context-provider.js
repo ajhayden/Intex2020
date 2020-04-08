@@ -19,9 +19,6 @@ export default class AppProvider extends React.Component {
     }
 
     setQuery = (values) => {
-        // get current quantity from this.state.cart
-        //const qty = this.state.cart[pid]
-        // set the new cart
         this.setState(state => produce(state, draft => {
             draft.query = {
                 "title": values.title,

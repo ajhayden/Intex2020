@@ -54,69 +54,8 @@ const FormController = props => {
             onSubmit={async (values, actions) => {
                 const resp = await axios.get('http://localhost:8000/api/campaign')
                 console.log('axios in action', resp)
-
-                const data = {
-                    "Inputs": {
-                      "input1": {
-                        "ColumnNames": [
-                          "standard_amount",
-                          "standard_goal",
-                          "donators",
-                          "days_active",
-                          "days_created",
-                          "has_beneficiary",
-                          "media_type",
-                          "project_type",
-                          "turn_off_donations",
-                          "visible_in_search",
-                          "campaign_hearts",
-                          "social_share_total",
-                          "is_charity"
-                        ],
-                        "Values": [
-                          [
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0"
-                          ],
-                          [
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0",
-                            "0"
-                          ]
-                        ]
-                      }
-                    },
-                    "GlobalParameters": {}
-                  }
-                const azure = await axios.post('https://ussouthcentral.services.azureml.net/workspaces/05e3440cfa294d0983fa24c937ead5df/services/c1ca7e6267d54a50884ed9769be9d8c5/execute?api-version=2.0&details=true', data,  
-                    {
-                        headers: {
-                            'Authorization':'Bearer iMpv5m5DJ3RDMPeDYMhZ5jeI3l6dtXyxc+pBLWcgThW8hfnbiQEBeRaLr+ahjlHR+7vhOGl2Bj5pIPN5LgzlNw==',
-                            'Content-Type': 'application/json',
-                        }
-                })
-                console.log(azure)
+                // const azure = await axios.post('http://localhost:8000/api/calculator/')
+                // console.log(azure)
                 context.setQuery(values)
                 history.push('/displayCampaigns')
             }}
