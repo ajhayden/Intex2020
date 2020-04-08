@@ -33,6 +33,7 @@ const FormController = props => {
               turn_off_donations: false,
               has_beneficiary: false,
               is_charity: false,
+              visible_in_search: false,
             }}
             validateOnChange={false}
             validateOnBlur={false}
@@ -93,6 +94,7 @@ const BasicForm = props => (
                 <TextInput form={props.form} title="Turn Off Donations" name='turn_off_donations' type='checkbox'/>
                 <TextInput form={props.form} title="Has Beneficiary" name='has_beneficiary' type='checkbox'/>
                 <TextInput form={props.form} title="Is Charity" name='is_charity' type='Checkbox'/>
+                <TextInput form={props.form} title="Visible In Search" name='visible_in_search' type='Checkbox'/>
             </bs.Col>
         </bs.Row>
         <bs.Row>
