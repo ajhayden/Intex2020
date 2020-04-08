@@ -4,6 +4,7 @@ import { Formik, Form, Field} from 'formik'
 import { useContext } from 'react'
 import AppContext from './context'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 
 function SearchCampaign(props) {
@@ -51,8 +52,71 @@ const FormController = props => {
                 return errors
             }}
             onSubmit={async (values, actions) => {
-                console.log('actions', actions)
-                console.log('values', values)
+                const resp = await axios.get('http://localhost:8000/api/campaign')
+                console.log('axios in action', resp)
+
+                const data = {
+                    "Inputs": {
+                      "input1": {
+                        "ColumnNames": [
+                          "standard_amount",
+                          "standard_goal",
+                          "donators",
+                          "days_active",
+                          "days_created",
+                          "has_beneficiary",
+                          "media_type",
+                          "project_type",
+                          "turn_off_donations",
+                          "visible_in_search",
+                          "campaign_hearts",
+                          "social_share_total",
+                          "is_charity"
+                        ],
+                        "Values": [
+                          [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                          ],
+                          [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                          ]
+                        ]
+                      }
+                    },
+                    "GlobalParameters": {}
+                  }
+                const azure = await axios.post('https://ussouthcentral.services.azureml.net/workspaces/05e3440cfa294d0983fa24c937ead5df/services/c1ca7e6267d54a50884ed9769be9d8c5/execute?api-version=2.0&details=true', data,  
+                    {
+                        headers: {
+                            'Authorization':'Bearer iMpv5m5DJ3RDMPeDYMhZ5jeI3l6dtXyxc+pBLWcgThW8hfnbiQEBeRaLr+ahjlHR+7vhOGl2Bj5pIPN5LgzlNw==',
+                            'Content-Type': 'application/json',
+                        }
+                })
+                console.log(azure)
                 context.setQuery(values)
                 history.push('/displayCampaigns')
             }}
@@ -68,13 +132,14 @@ const FormController = props => {
 const BasicForm = props => (
     <Form className="text-primary">
         <bs.Row>
-            <bs.Col>
+            <bs.Col md='6' className='ml-3'>
                 <br/>
                 <TextInput form={props.form} title="Title:" name="title" type="text" />
                 <TextInput form={props.form} title="Category:" name="category" type="text" />
             </bs.Col>
-            <bs.Col className='p-10' >
-                <br/>
+        </bs.Row>
+        <bs.Row>
+            <bs.Col md='3' className='ml-3'>
                 <bs.Form.Label>Number of Donators:</bs.Form.Label>
                 <br/>
                 <Field as="select" name="donators" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
@@ -86,7 +151,8 @@ const BasicForm = props => (
                     <option value="200-300">200-300</option>
                     <option value="300-100000">+300</option>
                 </Field>
-                <br/><br/>
+            </bs.Col>
+            <bs.Col md='3'>
                 <bs.Form.Label>Total Amount:</bs.Form.Label>
                 <br/>
                 <Field as="select" name="currentAmount" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
@@ -99,7 +165,8 @@ const BasicForm = props => (
                     <option value="10000-100000">10000-100000</option>
                     <option value="100000-1000000000">+100000</option>
                 </Field>
-                <br/><br/>
+            </bs.Col>
+            <bs.Col md='3'>
                 <bs.Form.Label>Has a beneficiary:</bs.Form.Label>
                 <br/>
                 <Field as="select" name="hasBeneficiary" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
@@ -107,22 +174,23 @@ const BasicForm = props => (
                     <option value="TRUE">Yes</option>
                     <option value="FALSE">No</option>
                 </Field>
-                
-                <br/><br/>
-                <div className='text-right'>
-                    <bs.Button disabled={props.form.isSubmitting} hidden={props.form.isSubmitting} className='mb-3' type="submit" variant="primary">
-                        Search 
-                    </bs.Button>
-                    <bs.Spinner
-                        as="span"
-                        animation="border"
-                        size="sm"
-                        role="status"
-                        aria-hidden="true"
-                        hidden={!props.form.isSubmitting}
-                        />
+            </bs.Col>
+        </bs.Row>
+        <bs.Row>
+            <bs.Col md='10'>
+                <div className='text-right mt-5'>
+                        <bs.Button disabled={props.form.isSubmitting} hidden={props.form.isSubmitting} className='mb-3' type="submit" variant="primary">
+                            Search 
+                        </bs.Button>
+                        <bs.Spinner
+                            as="span"
+                            animation="border"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                            hidden={!props.form.isSubmitting}
+                            />
                 </div>
-                <br/>
             </bs.Col>
         </bs.Row>
     </Form>

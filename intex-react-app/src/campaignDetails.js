@@ -88,13 +88,13 @@ export default function CampaignDetails(props) {
                         <h6>Location of Campaign Online:</h6>
                     </Col>
                     <Col>
-                        <a href={campaign.url} target="_blank"> <h6> {campaign.url}</h6></a>
+                        <a href={campaign.url} target="_blank" rel="noopener noreferrer"> <h6> {campaign.url}</h6></a>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
                     <h5>Description:</h5>
-                    <hr /><img style={{float:"right",width:340,height:340}} src={campaign.campaign_image_url}/>
+                    <hr /><img alt="gofundmeimage" style={{float:"right",width:340,height:340}} src={campaign.campaign_image_url}/>
                     <h6>{campaign.description}</h6>
                     </Col>
                 </Row>

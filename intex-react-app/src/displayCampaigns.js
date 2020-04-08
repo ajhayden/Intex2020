@@ -12,7 +12,6 @@ export default function DisplayCampaigns(props) {
 
     if(query.currentAmount !== "")
     {
-        console.log('current_amount')
         let fullAmount = query.currentAmount.split('-')
         let minAmount = parseInt(fullAmount[0])
         let maxAmount = parseInt(fullAmount[1])
@@ -21,7 +20,6 @@ export default function DisplayCampaigns(props) {
 
     if(query.donators !== "")
     {
-        console.log('donators')
         let fullDonators = query.donators.split('-')
         let minDonators = parseInt(fullDonators[0])
         let maxDonators = parseInt(fullDonators[1])
@@ -30,12 +28,10 @@ export default function DisplayCampaigns(props) {
 
     if(query.hasBeneficiary !== "")
     {
-        console.log('beneficiary')
         if(query.hasBeneficiary === "TRUE" )
         {
             campaignValues = campaignValues.filter(x => x.has_beneficiary === "TRUE")
         }
-        console.log('beneficiary')
         if(query.hasBeneficiary === "FALSE" )
         {
             campaignValues = campaignValues.filter(x => x.has_beneficiary === "FALSE")
