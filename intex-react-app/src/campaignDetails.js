@@ -26,9 +26,21 @@ export default function CampaignDetails(props) {
     {
         nowFraud = nowFraud + 40
     }
-    if(campaign.is_charity === "TRUE" || campaign.charity_valid === "TRUE")
+    if(campaign.is_charity === "TRUE" && campaign.charity_valid === "FALSE")
     {
         nowFraud = nowFraud + 40
+    }
+    if(campaign.title.includes("corona") === true && campaign.user_last_name.includes("Corona") === false)
+    {
+        nowFraud = nowFraud + 10
+    }
+    if(campaign.charity_valid === "TRUE")
+    {
+        nowFraud = nowFraud - 15
+    }
+    if(campaign.goal > 99000)
+    {
+        nowFraud = nowFraud + 30
     }
     const progressInstance = <ProgressBar variant="danger" animated now={nowFraud} label={`${nowFraud}%`} />
 
