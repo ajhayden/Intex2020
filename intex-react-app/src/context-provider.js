@@ -9,11 +9,12 @@ export default class AppProvider extends React.Component {
     constructor(props) {
         super(props)
         this.actions = {
-            setQuery: this.setQuery
+            setQuery: this.setQuery,
         }
         this.state = {
             campaigns: [],
-            query:{}
+            query:{},
+            //calculator: {}
         }
     }
 
@@ -40,7 +41,6 @@ export default class AppProvider extends React.Component {
             </AppContext.Provider>
         )
     }
-
 
     async componentDidMount() {
         const resp = await axios.get('http://localhost:8000/api/campaign')

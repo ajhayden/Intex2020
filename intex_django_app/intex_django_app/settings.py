@@ -27,6 +27,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 # Application definition
 
+CORS_ORIGIN_ALLOW_ALL = True
+ACCESS-CONTROL-ALLOW-ORIGIN: '*'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,8 +54,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'intex_django_app.urls'
 
