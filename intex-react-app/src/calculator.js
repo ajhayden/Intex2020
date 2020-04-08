@@ -23,36 +23,20 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-                title: 'COVID',
-                category: '',
-                currentAmount: '',
-                donators: '',
-                hasBeneficiary: 'TRUE',
+              standard_goal: '2222',
             }}
             validateOnChange={false}
             validateOnBlur={false}
             validate={values => {
                 const errors = {}
                 console.log('validating', values)
-                /*if(values.title === ""){
-                    errors.title = 'You need a value for the title'
+                if(values.standard_goal === ""){
+                    errors.standard_goal = 'You need a value for the title'
                 }
-                if(values.category === ""){
-                    errors.category = 'You need a value for category'
-                }
-                if(values.currentAmount === ""){
-                    errors.currentAmount = 'You need a value for current amount'
-                }
-                if(values.donators === ""){
-                    errors.donators = 'You need a value for the donators'
-                }
-                if(values.hasBeneficiary === ""){
-                    errors.hasBeneficiary = 'You need a value for the beneficiary'
-                }*/
                 return errors
             }}
             onSubmit={async (values, actions) => {
-                const azure = await axios.post('http://localhost:8000/api/calculator/')
+                const azure = await axios.post('http://localhost:8000/api/calculator/', values)
                 console.log('Azure Results', azure)
                 history.push('/calculator')
             }}
@@ -68,53 +52,14 @@ const FormController = props => {
 const BasicForm = props => (
     <Form className="text-primary">
         <bs.Row>
-            <bs.Col md='6' className='ml-3'>
+            <bs.Col md='12' className='ml-3'>
                 <br/>
-                <TextInput form={props.form} title="Title:" name="title" type="text" />
-                <TextInput form={props.form} title="Category:" name="category" type="text" />
+                <TextInput form={props.form} title="Standard Goal" name="standard_goal" type="text" />
             </bs.Col>
         </bs.Row>
         <bs.Row>
-            <bs.Col md='3' className='ml-3'>
-                <bs.Form.Label>Number of Donators:</bs.Form.Label>
-                <br/>
-                <Field as="select" name="donators" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
-                    <option value=""></option>
-                    <option value="0-10">0-10</option>
-                    <option value="10-50">10-50</option>
-                    <option value="50-100">50-100</option>
-                    <option value="100-200">100-200</option>
-                    <option value="200-300">200-300</option>
-                    <option value="300-100000">+300</option>
-                </Field>
-            </bs.Col>
-            <bs.Col md='3'>
-                <bs.Form.Label>Total Amount:</bs.Form.Label>
-                <br/>
-                <Field as="select" name="currentAmount" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
-                    <option value=""></option>
-                    <option value="0-0">0</option>
-                    <option value="1-100">1-100</option>
-                    <option value="100-1000">100-1000</option>
-                    <option value="1000-3000">1000-3000</option>
-                    <option value="3000-10000">3000-10000</option>
-                    <option value="10000-100000">10000-100000</option>
-                    <option value="100000-1000000000">+100000</option>
-                </Field>
-            </bs.Col>
-            <bs.Col md='3'>
-                <bs.Form.Label>Has a beneficiary:</bs.Form.Label>
-                <br/>
-                <Field as="select" name="hasBeneficiary" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
-                    <option value=""></option>
-                    <option value="TRUE">Yes</option>
-                    <option value="FALSE">No</option>
-                </Field>
-            </bs.Col>
-        </bs.Row>
-        <bs.Row>
-            <bs.Col md='10'>
-                <div className='text-right mt-5'>
+            <bs.Col md='12'>
+                <div className='text-center mt-5'>
                         <bs.Button disabled={props.form.isSubmitting} hidden={props.form.isSubmitting} className='mb-3' type="submit" variant="primary">
                             Search 
                         </bs.Button>
