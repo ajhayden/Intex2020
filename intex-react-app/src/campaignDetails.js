@@ -5,7 +5,7 @@ import { useRouteMatch } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { Row } from 'react-bootstrap'
 import { Col } from 'react-bootstrap'
-
+import { ProgressBar } from 'react-bootstrap'
 
 //how do change an array you need to convert object.values
 export default function CampaignDetails(props) {
@@ -15,6 +15,46 @@ export default function CampaignDetails(props) {
     console.log(match)
     let campaignId = match.params.id
     let campaign = campaignValues.find(x => x.id === parseInt(campaignId))
+    let nowFraud = 20
+    let nowSuccess = 15
+
+    if(campaign.location_country === "")
+    {
+        nowFraud = nowFraud + 5
+    }
+    if(campaign.deactivated === "TRUE")
+    {
+        nowFraud = nowFraud + 40
+    }
+    if(campaign.is_charity === "TRUE" || campaign.charity_valid === "TRUE")
+    {
+        nowFraud = nowFraud + 40
+    }
+    const progressInstance = <ProgressBar variant="danger" animated now={nowFraud} label={`${nowFraud}%`} />
+
+    if(parseInt(campaign.campaign_hearts) > 40)
+    {
+        nowSuccess = nowSuccess + 15
+    }
+    if(parseInt(campaign.current_amount) > 2083)
+    {
+        nowSuccess = nowSuccess + 15
+    }
+    if(parseInt(campaign.donators) > 40)
+    {
+        nowSuccess = nowSuccess + 15
+    }
+    if(parseInt(campaign.social_share_total) > 148)
+    {
+        nowSuccess = nowSuccess + 15
+    }
+    if(parseInt((campaign.current_amount/campaign.goal) > 50))
+    {
+        nowSuccess = nowSuccess + 25
+    }
+    const progressInstance2 = <ProgressBar variant="success" animated now={nowSuccess} label={`${nowSuccess}%`} />
+
+    
 
     return (
         <div className="text-primary pt-4 pb-4">
@@ -34,9 +74,13 @@ export default function CampaignDetails(props) {
                 <Row>
                     <Col>
                         <h4>Success Score:{}</h4>
+                        {progressInstance2}
+                        <br/>
                     </Col>
                     <Col>
                         <h4>Fraudulent Score:{}</h4>
+                        {progressInstance}
+                        <br/>
                     </Col>
                 </Row>
                 <Row>
