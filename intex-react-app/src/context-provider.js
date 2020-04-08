@@ -29,7 +29,6 @@ export default class AppProvider extends React.Component {
                 "donators": values.donators,
                 "hasBeneficiary": values.hasBeneficiary,
             }
-            console.log(draft.query)
         }))
     }
 

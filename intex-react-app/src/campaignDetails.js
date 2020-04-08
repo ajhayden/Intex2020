@@ -9,9 +9,10 @@ import { Col } from 'react-bootstrap'
 
 //how do change an array you need to convert object.values
 export default function CampaignDetails(props) {
-    const context = useContext(AppContext)
+    let context = useContext(AppContext)
     let campaignValues = context.campaigns
     let match = useRouteMatch('/campaignDetails/:id')
+    console.log(match)
     let campaignId = match.params.id
     let campaign = campaignValues.find(x => x.id === parseInt(campaignId))
 
@@ -34,7 +35,7 @@ export default function CampaignDetails(props) {
                         <h4>Location of Campaign Online:</h4>
                     </Col>
                     <Col>
-                        <a href={campaign.url}> <h5> {campaign.url}</h5></a>
+                        <a href={campaign.url} target="_blank"> <h5> {campaign.url}</h5></a>
                     </Col>
                 </Row>
                 <Row>
@@ -47,7 +48,7 @@ export default function CampaignDetails(props) {
                 <hr />
                 <Row>
                     <Col>
-                        <h6>Name</h6>
+                        <h6>Creators Name: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.user_first_name}&nbsp;{campaign.user_last_name}</h6>
@@ -56,7 +57,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Location City Started the Campaign</h6>
+                        <h6>City: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.location_city}&nbsp;&nbsp;{campaign.location_country}&nbsp;{campaign.location_zip}</h6>
@@ -65,7 +66,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Currency</h6>
+                        <h6>Currency Type: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.currencycode}</h6>
@@ -74,7 +75,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Created Date</h6>
+                        <h6>Creation Date: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.created_at}</h6>
@@ -83,7 +84,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Launched Date</h6>
+                        <h6>Launched Date: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.launch_date}</h6>
@@ -92,7 +93,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Updates are Automatically Posted to FaceBook</h6>
+                        <h6>Updates are Automatically Posted to FaceBook: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.collected_date}</h6>
@@ -101,7 +102,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Current Level of Money Raised</h6>
+                        <h6>Current Level of Money Raised: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.current_amount}</h6>
@@ -110,7 +111,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Goal of the Indivdual or Group Who Posted the Campaign</h6>
+                        <h6>Monetary Goal:</h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.goal}</h6>
@@ -119,7 +120,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>Number of People Who Have Donated</h6>
+                        <h6>Number of People Donated:</h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.donators}</h6>
@@ -128,7 +129,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>days_active number of days since the campaign was publicly live</h6>
+                        <h6>Days Since Publicly Live: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.days_active}</h6>
@@ -137,7 +138,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>number of days since the campaign was started in the system</h6>
+                        <h6>Days Since Created: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.days_created}</h6>
@@ -146,7 +147,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>???</h6>
+                        <h6>Media Type: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.media_type}</h6>
@@ -155,7 +156,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>???</h6>
+                        <h6>Project Type: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.project_type}</h6>
@@ -164,7 +165,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>donations have been paused</h6>
+                        <h6>Donations Paused: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.turn_off_donations}</h6>
@@ -173,7 +174,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>true/false indicating whether this campaign is publicly visible in the search results</h6>
+                        <h6>Publicly Visible: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.visible_in_search}</h6>
@@ -182,7 +183,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>active true/false set by the user</h6>
+                        <h6>Current Status of Campaign: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.status}</h6>
@@ -191,7 +192,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>deactivated true/false by GoFundMe</h6>
+                        <h6>Deactivated by GoFundMe: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.deactivated}</h6>
@@ -200,7 +201,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>???</h6>
+                        <h6>Current Status: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.state}</h6>
@@ -209,7 +210,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>true/false indicating whether the campaign has been launched</h6>
+                        <h6>Campaign Launched: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.is_launched}</h6>
@@ -218,7 +219,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>the number of people who have "liked" or "hearted" the campaign regardless of whether or not they have donated</h6>
+                        <h6>Social Media Likes Count: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.campaign_hearts}</h6>
@@ -227,7 +228,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>number of people who have shared the campaign on their social media accounts</h6>
+                        <h6>Social Media Share Count: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.social_share_total}</h6>
@@ -236,7 +237,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>date of the last social media share</h6>
+                        <h6>Last Social Media Share: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.social_share_last_update}</h6>
@@ -245,7 +246,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>true/false indicating whether the creator is a charitable organization (as opposed to an inh6idual)</h6>
+                        <h6>Charitable Organization: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.is_charity}</h6>
@@ -254,7 +255,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>true/false indicating whether the charity has an npo ID</h6>
+                        <h6>Charity Validity: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.charity_valid}</h6>
@@ -263,7 +264,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>the npo ID of the valid charity</h6>
+                        <h6>Nonprofit ID: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.charity_npo_id}</h6>
@@ -272,7 +273,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>the name of the charity</h6>
+                        <h6>Charity Name: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.charity_name}</h6>
@@ -281,7 +282,7 @@ export default function CampaignDetails(props) {
                 <p></p>
                 <Row>
                     <Col>
-                        <h6>???</h6>
+                        <h6>Velocity: </h6>
                     </Col>
                     <Col>
                         <h6 style={{float:"right"}}>{campaign.velocity}</h6>
