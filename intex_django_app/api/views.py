@@ -62,6 +62,7 @@ class Calculator(APIView):
         media_type = values['media_type']
         project_type = values['project_type']
         turn_off_donations = values['turn_off_donations']
+        print('turn off donations', turn_off_donations)
         if turn_off_donations == True:
             turn_off_donations = "1"
         else:

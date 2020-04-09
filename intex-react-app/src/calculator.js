@@ -103,10 +103,18 @@ const BasicForm = props => (
                 </Field>
                 <br></br>
                 <br></br>
-                <TextInput form={props.form} title="Turn Off Donations" name='turn_off_donations' type='checkbox'/>
-                <TextInput form={props.form} title="Has Beneficiary" name='has_beneficiary' type='checkbox'/>
-                <TextInput form={props.form} title="Is Charity" name='is_charity' type='checkbox'/>
-                <TextInput form={props.form} title="Visible In Search" name='visible_in_search' type='checkbox'/>
+                <bs.Form.Label> Turn Off Donations</bs.Form.Label>&nbsp;
+                <Field type="checkbox" name="turn_off_donations" />
+                <br></br><br></br>
+                <bs.Form.Label> Has Beneficiary</bs.Form.Label>&nbsp;
+                <Field type="checkbox" name="has_beneficiary" />
+                <br></br><br></br>
+                <bs.Form.Label> Is Charity</bs.Form.Label>&nbsp;
+                <Field type="checkbox" name="is_charity" />
+                <br></br><br></br>
+                <bs.Form.Label> Visible In Search</bs.Form.Label>&nbsp;
+                <Field type="checkbox" name="visible_in_search" />
+                <br></br><br></br>
             </bs.Col>
         </bs.Row>
         <bs.Row>
