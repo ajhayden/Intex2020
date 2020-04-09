@@ -6,7 +6,7 @@ import axios from 'axios'
 
 function calculator(props) {
     return (
-        <div>
+        <div className="text-primary divSize">
             <FormController/>
         </div>
     )
