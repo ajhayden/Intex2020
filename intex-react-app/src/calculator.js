@@ -9,7 +9,7 @@ import axios from 'axios'
 
 function calculator(props) {
     return (
-        <div className="divSize">
+        <div>
             <FormController/>
         </div>
     )
@@ -23,13 +23,13 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-              standard_goal: '2222', 
+              standard_goal: '500000', 
               days_active: '100',
               days_created: '100',
               social_share_total: '100',
               campaign_hearts: '100',
-              media_type: 0,
-              project_type: 0,
+              media_type: '0',
+              project_type: '0',
               turn_off_donations: false,
               has_beneficiary: false,
               is_charity: false,
@@ -64,7 +64,7 @@ const BasicForm = props => (
         <bs.Row>
             <bs.Col md='6' className='ml-3'>
                 <br/>
-                <TextInput form={props.form} title="Standard Goal" name="standard_goal" type="number" />
+                <TextInput form={props.form} title="Standard Goal" name="standard_goal" type="text" />
                 <TextInput form={props.form} title="Days Active" name='days_active' type='number'/>
                 <TextInput form={props.form} title="Days Created" name='days_created' type='number'/>
                 <TextInput form={props.form} title="Social Share Total" name='social_share_total' type='number'/>

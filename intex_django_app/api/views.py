@@ -52,27 +52,44 @@ class Calculator(APIView):
     def post(self, request, format=None):
         values = request.data
         standard_goal = values['standard_goal']
-        days_active = values['days_active']
-        days_created = values['days_created']
-        has_beneficiary = values['has_beneficiary']
-        media_type = values['media_type']
-        project_type = values['project_type']
+        print(standard_goal)
+        days_active = str(values['days_active'])
+        days_created = str(values['days_created'])
+        has_beneficiary = str(values['has_beneficiary'])
+        if has_beneficiary == True:
+            has_beneficiary = "1"
+        else:
+            has_beneficiary = "0"
+        media_type = str(values['media_type'])
+        project_type = str(values['project_type'])
         turn_off_donations = values['turn_off_donations']
+        if turn_off_donations == True:
+            turn_off_donations = "1"
+        else:
+            turn_off_donations = "0"
         visible_in_search = values['visible_in_search']
-        campaign_hearts = values['campaign_hearts']
-        social_share_total = values['social_share_total']
+        if visible_in_search == True:
+            visible_in_search = "1"
+        else:
+            visible_in_search = "0"
+        campaign_hearts = str(values['campaign_hearts'])
+        social_share_total = str(values['social_share_total'])
         is_charity = values['is_charity']
+        if is_charity == True:
+            is_charity = "1"
+        else:
+            is_charity = "0"
 
         import requests  
         url = "https://ussouthcentral.services.azureml.net/workspaces/05e3440cfa294d0983fa24c937ead5df/services/15c5b0bddce6468da3b2aaa538af1068/execute?api-version=2.0&details=true"
         # payload = '{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"standard_amount\",\r\n        \"standard_goal\",\r\n        \"days_active\",\r\n        \"days_created\",\r\n        \"has_beneficiary\",\r\n        \"media_type\",\r\n        \"project_type\",\r\n        \"turn_off_donations\",\r\n        \"visible_in_search\",\r\n        \"campaign_hearts\",\r\n        \"social_share_total\",\r\n        \"is_charity\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"'+ standard_goal +'\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ],\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}'
-        payload = '{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"standard_amount\",\r\n        \"standard_goal\",\r\n        \"days_active\",\r\n        \"days_created\",\r\n        \"has_beneficiary\",\r\n        \"media_type\",\r\n        \"project_type\",\r\n        \"turn_off_donations\",\r\n        \"visible_in_search\",\r\n        \"campaign_hearts\",\r\n        \"social_share_total\",\r\n        \"is_charity\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"'+ standard_goal +'\",\r\n          \"'+ days_active +'\",\r\n          \"'+ days_created +'\",\r\n          \"'+ has_beneficiary +'\",\r\n          \"'+ media_type +'\",\r\n          \"'+ project_type +'\",\r\n          \"'+ turn_off_donations +'\",\r\n          \"'+ visible_in_search +'\",\r\n          \"'+ campaign_hearts +'\",\r\n          \"'+ social_share_total +'\",\r\n          \"'+ is_charity +'\"\r\n        ],\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}'
+        # payload = '{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"standard_amount\",\r\n        \"standard_goal\",\r\n        \"days_active\",\r\n        \"days_created\",\r\n        \"has_beneficiary\",\r\n        \"media_type\",\r\n        \"project_type\",\r\n        \"turn_off_donations\",\r\n        \"visible_in_search\",\r\n        \"campaign_hearts\",\r\n        \"social_share_total\",\r\n        \"is_charity\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"'+ standard_goal +'\",\r\n          \"'+ '4444444' +'\",\r\n          \"'+ days_created +'\",\r\n          \"'+ has_beneficiary +'\",\r\n          \"'+ media_type +'\",\r\n          \"'+ project_type +'\",\r\n          \"'+ turn_off_donations +'\",\r\n          \"'+ visible_in_search +'\",\r\n          \"'+ campaign_hearts +'\",\r\n          \"'+ social_share_total +'\",\r\n          \"'+ is_charity +'\"\r\n        ],\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}'
+        payload = '{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"standard_amount\",\r\n        \"standard_goal\",\r\n        \"days_active\",\r\n        \"days_created\",\r\n        \"has_beneficiary\",\r\n        \"media_type\",\r\n        \"project_type\",\r\n        \"turn_off_donations\",\r\n        \"visible_in_search\",\r\n        \"campaign_hearts\",\r\n        \"social_share_total\",\r\n        \"is_charity\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"'+ standard_goal +'\",\r\n          \"111\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ],\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}'
         headers = {
         'Authorization': 'Bearer 4vCcd2JuQ0Kz9FirYK+nwE2712/LmdUfgPJKn4a+mQCB69wNT55joGV1MeWsD8mv2JszK13Q6sZIkQ7gr5mkoQ==',
         'Content-Type': 'application/json'
         }
         response = requests.request("POST", url, headers=headers, data = payload)
-        print(response.text.encode('utf8'))
         return Response(response.text.encode('utf8'), status=status.HTTP_201_CREATED)
 
 # Campaign Update
