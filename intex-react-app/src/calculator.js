@@ -1,9 +1,6 @@
 import React from 'react'
 import * as bs from 'react-bootstrap'
 import { Formik, Form, Field} from 'formik'
-import { useContext } from 'react'
-import AppContext from './context'
-import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -17,9 +14,8 @@ function calculator(props) {
 export default calculator
 
 const FormController = props => {
-    const context = useContext(AppContext)
-    const history = useHistory()
-    // const [cardError, setCardError] = React.useState('none')
+    const [amountFinal, setAmountFinal] = React.useState(0)
+    const [amountColor, setAmountColor] = React.useState('danger')
     return (
         <Formik
             initialValues={{
@@ -48,10 +44,14 @@ const FormController = props => {
             onSubmit={async (values, actions) => {
                 const azure = await axios.post('http://localhost:8000/api/calculator/', values)
                 console.log('Azure Results', azure)
-                history.push('/calculator')
+                const jsonV = JSON.parse(azure.data)
+                const jsonAmountFinal = jsonV.Results.output1.value.Values[0][12]
+                console.log(Number(jsonAmountFinal).toFixed(2))
+                setAmountFinal(Number(jsonAmountFinal).toFixed(2))
+                setAmountColor('success')
             }}
         >{form => (
-            <BasicForm form={form} />
+            <BasicForm amountFinal={amountFinal} amountColor={amountColor} form={form} />
         )}</Formik>
     )
 }
@@ -98,7 +98,7 @@ const BasicForm = props => (
             </bs.Col>
         </bs.Row>
         <bs.Row>
-            <bs.Col md='12'>
+            <bs.Col md='4'>
                 <div className='text-center mt-5'>
                         <bs.Button disabled={props.form.isSubmitting} hidden={props.form.isSubmitting} className='mb-3' type="submit" variant="primary">
                             Search 
@@ -111,6 +111,12 @@ const BasicForm = props => (
                             aria-hidden="true"
                             hidden={!props.form.isSubmitting}
                             />
+                </div>
+
+            </bs.Col>
+            <bs.Col md='6'>
+                <div className='text-center'>
+                        <div style={{fontSize: 40}} className={"text-"+ props.amountColor}>${props.amountFinal}</div>
                 </div>
             </bs.Col>
         </bs.Row>
