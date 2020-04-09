@@ -69,17 +69,17 @@ const FormController = props => {
 const BasicForm = props => (
     <Form className="text-primary">
         <bs.Row>
-            <bs.Col md='6' className='ml-3'>
+            <bs.Col md='6' className='ml-5'>
                 <br/>
                 <TextInput form={props.form} title="Title:" name="title" type="text" />
                 {/* <TextInput form={props.form} title="Category:" name="category" type="text" /> */}
             </bs.Col>
         </bs.Row>
         <bs.Row>
-        <bs.Col md='3' className='ml-3'>
+        <bs.Col md='3' className='ml-5'>
                 <bs.Form.Label>Category:</bs.Form.Label>
                 <br/>
-                <Field as="select" name="category" style={{width:632, height:38, borderRadius:5, borderColor:'#ced4da'}}>
+                <Field as="select" name="category" style={{width:210, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
                     <option value="Animals & Pets">Animals & Pets</option>
                     <option value="Accidents & Emergencies">Accidents & Emergencies</option>
@@ -97,12 +97,10 @@ const BasicForm = props => (
                     <option value="unknown">Unknown</option>
                 </Field>
             </bs.Col>
-        </bs.Row>
-        <bs.Row>
-            <bs.Col md='3' className='ml-3'>
+            <bs.Col md='3' className='ml-4'>
                 <bs.Form.Label>Number of Donators:</bs.Form.Label>
                 <br/>
-                <Field as="select" name="donators" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
+                <Field as="select" name="donators" style={{width:210, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
                     <option value="0-10">0-10</option>
                     <option value="10-50">10-50</option>
@@ -112,10 +110,13 @@ const BasicForm = props => (
                     <option value="300-100000">+300</option>
                 </Field>
             </bs.Col>
-            <bs.Col md='3'>
+        </bs.Row>
+        <bs.Row>
+            <bs.Col md='3' className='ml-5'>
+                <br/>
                 <bs.Form.Label>Total Amount:</bs.Form.Label>
                 <br/>
-                <Field as="select" name="currentAmount" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
+                <Field as="select" name="currentAmount" style={{width:210, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
                     <option value="0-0">0</option>
                     <option value="1-100">1-100</option>
@@ -126,10 +127,11 @@ const BasicForm = props => (
                     <option value="100000-1000000000">+100000</option>
                 </Field>
             </bs.Col>
-            <bs.Col md='3'>
+            <bs.Col md='3' className='ml-4'>
+                <br/>
                 <bs.Form.Label>Has a beneficiary:</bs.Form.Label>
                 <br/>
-                <Field as="select" name="hasBeneficiary" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
+                <Field as="select" name="hasBeneficiary" style={{width:210, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
                     <option value="TRUE">Yes</option>
                     <option value="FALSE">No</option>

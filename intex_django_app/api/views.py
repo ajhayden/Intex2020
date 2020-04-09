@@ -53,15 +53,12 @@ class Calculator(APIView):
         values = request.data
         standard_goal = values['standard_goal']
         days_active = values['days_active']
-        print('days active', days_active)
         days_created = values['days_created']
-        print('days created', days_created)
         has_beneficiary = values['has_beneficiary']
         if has_beneficiary == True:
             has_beneficiary = "1"
         else:
             has_beneficiary = "0"
-        print('has_beneficiary', has_beneficiary)
         media_type = values['media_type']
         project_type = values['project_type']
         turn_off_donations = values['turn_off_donations']

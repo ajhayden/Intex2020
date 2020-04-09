@@ -19,13 +19,13 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-              standard_goal: '500000', 
-              days_active: '11111111',
-              days_created: '0',
-              social_share_total: '0',
-              campaign_hearts: '0',
+              standard_goal: '1000', 
+              days_active: '100',
+              days_created: '100',
+              social_share_total: '5',
+              campaign_hearts: '5',
               media_type: '0',
-              project_type: '0',
+              project_type: '1',
               turn_off_donations: false,
               has_beneficiary: false,
               is_charity: false,
@@ -36,8 +36,20 @@ const FormController = props => {
             validate={values => {
                 const errors = {}
                 console.log('validating', values)
-                if(values.standard_goal === ""){
-                    errors.standard_goal = 'You need a value for the title'
+                if(isNaN(parseInt(values.standard_goal))){
+                    errors.standard_goal = 'Standard goal is not a number'
+                }
+                if(isNaN(parseInt(values.days_active))){
+                    errors.days_active = 'Days active is not a number'
+                }
+                if(isNaN(parseInt(values.days_created))){
+                    errors.days_created = 'Days created is not a number'
+                }
+                if(isNaN(parseInt(values.social_share_total))){
+                    errors.social_share_total = 'Social share total is not a number'
+                }
+                if(isNaN(parseInt(values.campaign_hearts))){
+                    errors.campaign_hearts = 'Campaign hearts is not a number'
                 }
                 return errors
             }}
@@ -93,13 +105,13 @@ const BasicForm = props => (
                 <br></br>
                 <TextInput form={props.form} title="Turn Off Donations" name='turn_off_donations' type='checkbox'/>
                 <TextInput form={props.form} title="Has Beneficiary" name='has_beneficiary' type='checkbox'/>
-                <TextInput form={props.form} title="Is Charity" name='is_charity' type='Checkbox'/>
-                <TextInput form={props.form} title="Visible In Search" name='visible_in_search' type='Checkbox'/>
+                <TextInput form={props.form} title="Is Charity" name='is_charity' type='checkbox'/>
+                <TextInput form={props.form} title="Visible In Search" name='visible_in_search' type='checkbox'/>
             </bs.Col>
         </bs.Row>
         <bs.Row>
             <bs.Col md='4'>
-                <div className='text-center mt-5'>
+                <div className='text-center mt-3'>
                         <bs.Button disabled={props.form.isSubmitting} hidden={props.form.isSubmitting} className='mb-3' type="submit" variant="primary">
                             Search 
                         </bs.Button>
