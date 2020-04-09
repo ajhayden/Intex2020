@@ -72,7 +72,30 @@ const BasicForm = props => (
             <bs.Col md='6' className='ml-3'>
                 <br/>
                 <TextInput form={props.form} title="Title:" name="title" type="text" />
-                <TextInput form={props.form} title="Category:" name="category" type="text" />
+                {/* <TextInput form={props.form} title="Category:" name="category" type="text" /> */}
+            </bs.Col>
+        </bs.Row>
+        <bs.Row>
+        <bs.Col md='3' className='ml-3'>
+                <bs.Form.Label>Category:</bs.Form.Label>
+                <br/>
+                <Field as="select" name="category" style={{width:632, height:38, borderRadius:5, borderColor:'#ced4da'}}>
+                    <option value=""></option>
+                    <option value="Animals & Pets">Animals & Pets</option>
+                    <option value="Accidents & Emergencies">Accidents & Emergencies</option>
+                    <option value="Business & Entrepreneurs">Business & Entrepreneurs</option>
+                    <option value="Babies, Kids & Family">Babies, Kids & Family</option>
+                    <option value="Community & Neighbors">Community & Neighbors</option>
+                    <option value="Celebrations & Events">Celebrations & Events</option>
+                    <option value="Community & Neighbors">Community & Neighbors</option>
+                    <option value="Dreams, Hopes & Wishes">Dreams, Hopes & Wishes</option>
+                    <option value="Education & Learning">Education & Learning</option>
+                    <option value="Funerals & Memorials">Funerals & Memorials</option>
+                    <option value="Medical, Illness & Healing">Medical, Illness & Healing</option>
+                    <option value="Non-Profits & Charities">Non-Profits & Charities</option>
+                    <option value="Sports, Teams & Clubs">Sports, Teams & Clubs</option>
+                    <option value="unknown">Unknown</option>
+                </Field>
             </bs.Col>
         </bs.Row>
         <bs.Row>

@@ -172,21 +172,25 @@ export default function CampaignDetails(props) {
                 </Row>
                 <Row>
                     <Col>
-                        <h4>Success Score:{}</h4>
+                        <h4>Success Score:</h4>
                         {progressInstance2}
+                        <sub>predicts how likely a campagin wll reach its goal</sub>
                         <br/>
                     </Col>
                     <Col>
-                        <h4>Fraudulent Score:{}</h4>
+                        <h4>Fraudulent Score:</h4>
                         {progressInstance}
+                        <sub>predicts how likely a campaign is fraudulent</sub>
                         <br/>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
+                        <br />
                         <h6>Location of Campaign Online:</h6>
                     </Col>
                     <Col>
+                        <br />
                         <a href={campaign.url} target="_blank" rel="noopener noreferrer"> <h6> {campaign.url}</h6></a>
                     </Col>
                 </Row>
