@@ -19,12 +19,12 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-              standard_goal: '1000', 
-              days_active: '100',
-              days_created: '100',
-              social_share_total: '5',
-              campaign_hearts: '5',
-              media_type: '0',
+              standard_goal: '', 
+              days_active: '',
+              days_created: '',
+              social_share_total: '',
+              campaign_hearts: '',
+              media_type: '2',
               project_type: '1',
               turn_off_donations: false,
               has_beneficiary: false,
@@ -51,6 +51,15 @@ const FormController = props => {
                 if(isNaN(parseInt(values.campaign_hearts))){
                     errors.campaign_hearts = 'Campaign hearts is not a number'
                 }
+                if(values.media_type === ""){
+                    errors.media_type = 'Media type must be filled out'
+                }
+                if(values.project_type === ""){
+                    errors.project_type = 'Project type must be filled out'
+                }
+                if(isNaN(parseInt(values.standard_goal)) > 1000000000){
+                    errors.standard_goal = 'Standard goal value is too high'
+                }
                 return errors
             }}
             onSubmit={async (values, actions) => {
@@ -76,28 +85,26 @@ const BasicForm = props => (
         <bs.Row>
             <bs.Col md='6' className='ml-3'>
                 <br/>
-                <TextInput form={props.form} title="Standard Goal" name="standard_goal" type="text" />
-                <TextInput form={props.form} title="Days Active" name='days_active' type='text'/>
-                <TextInput form={props.form} title="Days Created" name='days_created' type='text'/>
-                <TextInput form={props.form} title="Social Share Total" name='social_share_total' type='text'/>
-                <TextInput form={props.form} title="Campaign Hearts" name='campaign_hearts' type='text'/>           
+                <TextInput form={props.form} placeholder="How much will the campaign make?" title="Standard Goal" name="standard_goal" type="text" />
+                <TextInput form={props.form} placeholder="How many days active?" title="Days Active" name='days_active' type='text'/>
+                <TextInput form={props.form} placeholder="How many days since the campaign was created?" title="Days Created" name='days_created' type='text'/>
+                <TextInput form={props.form} placeholder="How many social media shares will it receive?" title="Social Share Total" name='social_share_total' type='text'/>
+                <TextInput form={props.form} placeholder="How many campaign hearts will it receive?"title="Campaign Hearts" name='campaign_hearts' type='text'/>           
             </bs.Col>
             <bs.Col className='mt-4'>
                 <bs.Form.Label>Media Type:</bs.Form.Label>
                 <br></br>
                 <Field as="select" name="media_type" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
-                    <option value=""></option>
+                    <option value="2">Photos</option>
                     <option value="0">Video</option>
-                    <option value="1">Link</option>
-                    <option value="2">None</option>
-                    <option value="3">Photos</option>
+                    <option value="3">Link</option>
+                    <option value="1">None</option>
                 </Field>
                 <br></br>
                 <br></br>
                 <bs.Form.Label>Project Type:</bs.Form.Label>
                 <br></br>
                 <Field as="select" name="project_type" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
-                    <option value=""></option>
                     <option value="1">Personal</option>
                     <option value="2">Charity/Organization</option>
                 </Field>
@@ -118,10 +125,10 @@ const BasicForm = props => (
             </bs.Col>
         </bs.Row>
         <bs.Row>
-            <bs.Col md='4'>
+            <bs.Col md='6'>
                 <div className='text-center mt-3'>
                         <bs.Button disabled={props.form.isSubmitting} hidden={props.form.isSubmitting} className='mb-3' type="submit" variant="primary">
-                            Search 
+                            Calculate 
                         </bs.Button>
                         <bs.Spinner
                             as="span"
@@ -134,7 +141,7 @@ const BasicForm = props => (
                 </div>
 
             </bs.Col>
-            <bs.Col md='6'>
+            <bs.Col md='3'>
                 <div className='text-center'>
                         <div style={{fontSize: 40}} className={"text-"+ props.amountColor}>${props.amountFinal}</div>
                 </div>

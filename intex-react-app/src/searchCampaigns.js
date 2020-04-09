@@ -23,11 +23,11 @@ const FormController = props => {
     return (
         <Formik
             initialValues={{
-                title: 'COVID',
+                title: '',
                 category: '',
                 currentAmount: '',
                 donators: '',
-                hasBeneficiary: 'TRUE',
+                hasBeneficiary: '',
             }}
             validateOnChange={false}
             validateOnBlur={false}
@@ -71,7 +71,7 @@ const BasicForm = props => (
         <bs.Row>
             <bs.Col md='6' className='ml-5'>
                 <br/>
-                <TextInput form={props.form} title="Title:" name="title" type="text" />
+                <TextInput form={props.form} placeholder="Input title such as COVID-19 or cornona" title="Title:" name="title" type="text" />
                 {/* <TextInput form={props.form} title="Category:" name="category" type="text" /> */}
             </bs.Col>
         </bs.Row>
