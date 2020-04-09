@@ -24,10 +24,10 @@ const FormController = props => {
         <Formik
             initialValues={{
               standard_goal: '500000', 
-              days_active: '100',
-              days_created: '100',
-              social_share_total: '100',
-              campaign_hearts: '100',
+              days_active: '11111111',
+              days_created: '0',
+              social_share_total: '0',
+              campaign_hearts: '0',
               media_type: '0',
               project_type: '0',
               turn_off_donations: false,
@@ -65,17 +65,17 @@ const BasicForm = props => (
             <bs.Col md='6' className='ml-3'>
                 <br/>
                 <TextInput form={props.form} title="Standard Goal" name="standard_goal" type="text" />
-                <TextInput form={props.form} title="Days Active" name='days_active' type='number'/>
-                <TextInput form={props.form} title="Days Created" name='days_created' type='number'/>
-                <TextInput form={props.form} title="Social Share Total" name='social_share_total' type='number'/>
-                <TextInput form={props.form} title="Campaign Hearts" name='campaign_hearts' type='number'/>           
+                <TextInput form={props.form} title="Days Active" name='days_active' type='text'/>
+                <TextInput form={props.form} title="Days Created" name='days_created' type='text'/>
+                <TextInput form={props.form} title="Social Share Total" name='social_share_total' type='text'/>
+                <TextInput form={props.form} title="Campaign Hearts" name='campaign_hearts' type='text'/>           
             </bs.Col>
             <bs.Col className='mt-4'>
                 <bs.Form.Label>Media Type:</bs.Form.Label>
                 <br></br>
                 <Field as="select" name="media_type" style={{width:200, height:38, borderRadius:5, borderColor:'#ced4da'}}>
                     <option value=""></option>
-                    <option value='0'>Video</option>
+                    <option value="0">Video</option>
                     <option value="1">Link</option>
                     <option value="2">None</option>
                     <option value="3">Photos</option>
