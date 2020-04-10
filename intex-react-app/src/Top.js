@@ -12,7 +12,7 @@ export default function Top(props) {
             <Row>
                 <Col md="11">
                     <Navbar expand="lg">
-                        <img alt="gofundmelogo" style={{width: 50, paddingTop: 0, paddingBottom: 5, paddingRight: 8}} src="/finalGraph.png"/>
+                        <img alt="gofundmelogo" style={{width: 50, paddingTop: 0, paddingBottom: 5, paddingRight: 8}} src={`${process.env.PUBLIC_URL}/finalGraph.png`} />
                         <Link to='/'>
                         <Navbar.Brand style={{fontSize: 25}}  className="text-white">
                             

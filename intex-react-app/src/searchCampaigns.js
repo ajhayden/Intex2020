@@ -33,7 +33,6 @@ const FormController = props => {
             validateOnBlur={false}
             validate={values => {
                 const errors = {}
-                console.log('validating', values)
                 /*if(values.title === ""){
                     errors.title = 'You need a value for the title'
                 }
@@ -52,8 +51,7 @@ const FormController = props => {
                 return errors
             }}
             onSubmit={async (values, actions) => {
-                const resp = await axios.get('http://localhost:8000/api/campaign')
-                console.log('axios in action', resp)
+                const resp = await axios.get('/api/campaign')
                 context.setQuery(values)
                 history.push('/displayCampaigns')
             }}
@@ -71,7 +69,7 @@ const BasicForm = props => (
         <bs.Row>
             <bs.Col md='6' className='ml-5'>
                 <br/>
-                <TextInput form={props.form} placeholder="Input title such as COVID-19 or cornona" title="Title:" name="title" type="text" />
+                <TextInput form={props.form} placeholder="Input title i.e COVID-19 or corona" title="Title:" name="title" type="text" />
                 {/* <TextInput form={props.form} title="Category:" name="category" type="text" /> */}
             </bs.Col>
         </bs.Row>

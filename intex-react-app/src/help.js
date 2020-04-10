@@ -6,7 +6,7 @@ export default function Help(props) {
     return (
         <div className="text-primary divSize">
             <h3 className="text-primary pt-4 pb-4" style={{textAlign: 'center'}}>
-                We are here to Help
+                We are here to help
             </h3>
             <h4 className="text-primary">Basic Instructions:</h4>
             <p>When you first enter the website there are several things that you can do to analyze the campaigns recently submitted</p>

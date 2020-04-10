@@ -12,7 +12,6 @@ export default function CampaignDetails(props) {
     let context = useContext(AppContext)
     let campaignValues = context.campaigns
     let match = useRouteMatch('/campaignDetails/:id')
-    console.log(match)
     let campaignId = match.params.id
     let campaign = campaignValues.find(x => x.id === parseInt(campaignId))
     let nowFraud = 5
@@ -46,88 +45,71 @@ export default function CampaignDetails(props) {
     if(campaign.description.includes("rich") === true)
     {
         nowFraud = nowFraud + 3
-        console.log(nowFraud, "Rich")
     }
     if(campaign.description.includes("I want") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "I want")
     }
     if(campaign.description.includes("give me") === true)
     {
         nowFraud = nowFraud + 3
-        console.log(nowFraud, "give me")
     }
     if(campaign.description.includes("stupid") === true)
     {
         nowFraud = nowFraud + 3
-        console.log(nowFraud, "stupid")
     }
     if(campaign.description.includes("idiot") === true)
     {
         nowFraud = nowFraud + 3
-        console.log(nowFraud, "idiot")
     }
     if(campaign.description.includes("beer") === true)
     {
         nowFraud = nowFraud + 3
-        console.log(nowFraud, "beer")
     }
     if(campaign.description.includes("covid19") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "covid")
     }
     if(campaign.description.includes("Trump") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "trump")
     }
     if(campaign.description.includes("trash") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "trash")
     }
     if(campaign.description.includes("millionare") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "millionare")
     }
     if(campaign.description.includes("toilet") === true)
     {
         nowFraud = nowFraud + 3
-        console.log(nowFraud, "toilet")
     }
     if(campaign.description.includes("I need help") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "I need help")
     }
     if(campaign.description.includes("sucks") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "sucks")
     }
     if(campaign.description.includes("I need money") === true)
     {
         nowFraud = nowFraud + 1
-        console.log(nowFraud, "I need money")
     }
     //Good Ones
     if(campaign.description.includes("COVID-19") === true)
     {
         nowFraud = nowFraud - 1
-        console.log(nowFraud, "COVID-19")
     }
     if(campaign.description.includes("health professionals") === true)
     {
         nowFraud = nowFraud - 1
-        console.log(nowFraud, "health professionals")
     }
     if(campaign.description.includes("humanitarian") === true)
     {
         nowFraud = nowFraud - 1
-        console.log(nowFraud, "humanitarian")
     }
     const progressInstance = <ProgressBar variant="danger" animated now={nowFraud} label={`${nowFraud}%`} />
 
@@ -197,7 +179,7 @@ export default function CampaignDetails(props) {
                 <Row>
                     <Col>
                     <h5>Description:</h5>
-                    <hr /><img alt="gofundmeimage" style={{float:"right",width:340,height:340}} src={campaign.campaign_image_url}/>
+                    <hr /><img alt="gofundmeimage" style={{float:"right",width:340,height:340}} src={campaign.campaign_image_url} />
                     <h6>{campaign.description}</h6>
                     </Col>
                 </Row>

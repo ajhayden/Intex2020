@@ -6,7 +6,7 @@ import axios from 'axios'
 
 function calculator(props) {
     return (
-        <div className="text-primary divSize">
+        <div className="text-primary divSize2">
             <FormController/>
         </div>
     )
@@ -35,7 +35,6 @@ const FormController = props => {
             validateOnBlur={false}
             validate={values => {
                 const errors = {}
-                console.log('validating', values)
                 if(isNaN(parseInt(values.standard_goal))){
                     errors.standard_goal = 'Standard goal is not a number'
                 }
@@ -63,11 +62,9 @@ const FormController = props => {
                 return errors
             }}
             onSubmit={async (values, actions) => {
-                const azure = await axios.post('http://localhost:8000/api/calculator/', values)
-                console.log('Azure Results', azure)
+                const azure = await axios.post('/api/calculator/', values)
                 const jsonV = JSON.parse(azure.data)
                 const jsonAmountFinal = jsonV.Results.output1.value.Values[0][12]
-                console.log(Number(jsonAmountFinal).toFixed(2))
                 setAmountFinal(Number(jsonAmountFinal).toFixed(2))
                 setAmountColor('success')
             }}

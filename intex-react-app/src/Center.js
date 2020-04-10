@@ -34,7 +34,7 @@ export default function Center(props) {
                         </Row>
                     </Col>
                     <Col>
-                        <img alt="gofundmelogo" style={{width: 350}} src="/graph7.png"/>
+                        <img alt="gofundmelogo" style={{width: 350}} src={`${process.env.PUBLIC_URL}/graph7.png`} />
                     </Col>
                 </Row>
             </Container>
